@@ -1,0 +1,38 @@
+server:
+  port: 9201
+  tomcat:
+    accesslog:
+      directory: ${log.file.path:./logs}
+      enabled: true
+      max-days: 7
+    max-swallow-size: 100MB
+    connection-timeout: 60000
+spring:
+  application:
+    name: simpleSpringBoot
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 30MB
+      resolve-lazily: true
+  task:
+    execution:
+      pool:
+        queue-capacity: 1000
+    scheduling:
+      pool:
+        size: 8
+      thread-name-prefix: scheduling-
+
+logging:
+  config: classpath:logback.xml
+  file:
+    path: ${log.file.path:./logs}
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+simpleSpringBoot:
+  allowed_origin: '*'

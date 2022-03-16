@@ -1,0 +1,28 @@
+application:
+  host: 127.0.0.1
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 1111
+    url: jdbc:mysql://${application.host}:3306/coolplay?useUnicode=true&characterEncoding=utf-8&useLegacyDatetimeCode=false&serverTimezone=UTC&useAffectedRows=true&zeroDateTimeBehavior=convertToNull
+    username: 1111
+    hikari:
+      connection-timeout: 5000
+      idle-timeout: 30000
+      initialization-fail-timeout: 20
+      max-lifetime: 60000
+      maximum-pool-size: 10
+      minimum-idle: 2
+      pool-name: hikari-pool
+      validation-timeout: 2000
+  jackson:
+    deserialization:
+      fail_on_unknown_properties: false
+  task:
+    execution:
+      pool:
+        core-size: 16
+        max-size: 50
+        queue-capacity: 1000
+      thread-name-prefix: async-
+

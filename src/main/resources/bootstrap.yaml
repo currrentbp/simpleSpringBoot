@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: simpleSpringBoot
+  profiles:
+    active: dev
+log:
+  file:
+    path: ./logs
+    name: coolplay
+  level: debug
